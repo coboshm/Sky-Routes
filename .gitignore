@@ -26,6 +26,7 @@ vendor
 bin
 !/bin/console
 db.sqlite
+cache
 composer.lock
 node_modules
 web/components

@@ -1,46 +1,45 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>LastWishes</h1>
-            <p class="lead">
-                If something happen to you, your feelings won't be lost.
-            </p>
-        </div>
-    </div>
-
-    <div class="row" style="margin-bottom: 20px;">
+    <div class="row" style="margin-bottom: 20px;" ng-controller="searchCtrl">
         <div class="col-md-8">
-            <div class="tile">
-                <img src="/components/flat-ui/images/icons/svg/pencils.svg" alt="Sign up" class="tile-image big-illustration">
-                <h3 class="tile-title">1. Sign In</h3>
-                <p>So you would start to make wishes in case something happen to you.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="tile">
-                <img src="/components/flat-ui/images/icons/svg/gift-box.svg" alt="Make a wish" class="tile-image big-illustration">
-                <h3 class="tile-title">2. Make a wish</h3>
-                <p>Add a message you want to sent in case something happen.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="tile">
-                <img src="/components/flat-ui/images/icons/svg/loop.svg" alt="You're Ok!" class="tile-image big-illustration">
-                <h3 class="tile-title">3. Keep in touch</h3>
-                <p>Answer our emails or use our App to say you're ok.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="tile">
-                <img src="/components/flat-ui/images/icons/svg/retina.svg" alt="Grant your wishes" class="tile-image big-illustration">
-                <h3 class="tile-title">4. Grant wishes</h3>
-                <p>In case you're out, we'll deliver your messages and wishes.</p>
-            </div>
+                <form class="tile" style="text-align: left;">
+                    <div>
+                        <label for="inputEmail3" class="col-sm-2 form-control-label" style="padding-top: 5px">From</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="cityFrom" uib-typeahead="airport as airport.city for airport in airports | filter:$viewValue | limitTo:8"  typeahead-min-length="2" class="form-control">
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 100%;margin-bottom: 5px;">
+                        <div style="margin-top:10px;">
+                            <label for="inputEmail3" class="col-sm-2 form-control-label" style="padding-top: 5px">Depart</label>
+                            <div class="col-md-4">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" placeholder="Departure" uib-datepicker-popup="[[format]]" ng-model="departure" is-open="departure.opened" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="departureOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="inputEmail3" class="col-sm-2 form-control-label" style="padding-top: 5px">Return</label>
+                            <div class="col-sm-4">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" placeholder="Departure" uib-datepicker-popup="[[format]]" ng-model="return" is-open="return.opened" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="returnOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="text-align: right; margin-right: 15px;">
+                        <div style="width:100%;">
+                            <button type="submit" class="btn btn-success" style="width:30%;">Search </button>
+                        </div>
+                    </div>
+                </form>
         </div>
     </div>
 {% endblock %}

@@ -11,7 +11,7 @@ Sky Rotues = API Sky Scanner + PHP in DDD
     php composer.phar install
 
 ## Run your Last Will bounded context
-    php -S localhost:8080 -t src/SkyRoutes/Infrastructure/Ui/Web/Public
+    php -S localhost:8080 -t web
 
 ## Installation
 
