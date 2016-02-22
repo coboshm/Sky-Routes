@@ -3,9 +3,15 @@ Sky Rotues = API Sky Scanner + PHP in DDD
 
 ## Requirements
 
-All you need to run this application is Vagrant.
+## Install assets
+    bower install
 
-**http://www.vagrantup.com/**
+## Set up the project
+    curl -sS https://getcomposer.org/installer | php
+    php composer.phar install
+
+## Run your Last Will bounded context
+    php -S localhost:8080 -t src/SkyRoutes/Infrastructure/Ui/Web/Public
 
 ## Installation
 
@@ -15,19 +21,5 @@ cd sky_routes
 wget http://getcomposer.org/composer.phar
 php composer.phar install
 ```
-
-Next you have to update your hosts file (usually located at */etc/hosts*), with the line below
-
-    172.21.99.7 sky_routes.dev www.sky_routes.dev redis.sky_routes.dev
-    
-## Running the application
-
-From the root application folder, run
-
-    vagrant up --provision
-    
-When vagrant finishes bootstraping the VM, open up a browser and go to
-
-**http://www.mydddblog.dev**
 
 Have fun!

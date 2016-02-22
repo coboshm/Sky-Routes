@@ -21,3 +21,11 @@ Tests/Unit/reports/
 # VIM
 .exrc
 *.swp
+
+vendor
+bin
+!/bin/console
+db.sqlite
+composer.lock
+node_modules
+web/components
