@@ -1,0 +1,9 @@
+{% extends "layout.html.twig" %}
+
+{% block title 'Hello World' %}
+
+{% block content %}
+    <div class="page-header">
+    </div>
+    {{ form(form, {'action': path('search_fly'), 'method': 'POST', 'style': 'horizontal'}) }}
+{% endblock %}
