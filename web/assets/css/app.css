@@ -172,10 +172,14 @@ input.ng-invalid {
 
 /* align icon */
 .left-addon .glyphicon  { left:  20px;}
-.right-addon .glyphicon { right: 10px; border-left: 1px solid #ccc; }
+.right-addon .glyphicon { right: 5px; border-left: 1px solid #ccc; }
 
-.right-addon-extra .glyphicon { right: 25px; border-left: 1px solid #ccc; }
+.right-addon-extra .glyphicon { right: 20px; border-left: 1px solid #ccc; }
 
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+select {
+    -webkit-appearance:none;
+}
