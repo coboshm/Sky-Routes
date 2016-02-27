@@ -3,24 +3,36 @@
 
 {% block content %}
 <div ng-controller="searchCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <i class="glyphicon glyphicon-map-marker" style="vertical-align: -1px; padding-left: 10px;"></i>
+            ([[country.name]])
+        </div>
+        <div class="modal-body">
+                <li ng-click="changeCountry(mayCountry)" class="list-group-item" ng-repeat="mayCountry in countries"><span>[[mayCountry.name]]</span></li>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        </div>
+    </script>
     <nav class="navbar-default navbar navbar-fixed-top" role="navigation">
 
         <div class="container-fluid">
+
+            <ul class="nav navbar-nav navbar-right mobile-hide bordersLaterals" style="padding: 15px 15px; display: inline-block">
+                Currency ([[country.currency]])
+            </ul>
             <!--<a class="navbar-brand" href="{{ path('home') }}"></a>-->
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" style="border-left: 1px solid #ccc; border-right: 1px solid #ccc;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Country <i class="glyphicon glyphicon-map-marker" style="vertical-align: -1px; padding-left: 10px;"></i>
+            <ul class="nav navbar-nav navbar-right" style="display: inline-block; float:right;">
+                <li class="dropdown bordersLaterals">
+                    <a href="#" ng-click="openModal()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="mobile-hide">Country</span> <i class="glyphicon glyphicon-map-marker" style="vertical-align: -1px; padding-left: 10px;"></i>
                         ([[country.name]])
                     </a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu mobile-hide" role="menu">
                         <li ng-repeat="mayCountry in countries"><a ng-click="changeCountry(mayCountry)">[[mayCountry.name]]</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" style="border-left: 1px solid #ccc; padding: 15px 15px;">
-                Currency ([[country.currency]])
-
             </ul>
         </div>
     </nav><!-- /navbar -->
@@ -49,16 +61,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div style="margin-top:10px; margin-bottom: 10px;">
-                            <div class="col-sm-6 inner-addon right-addon-extra">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <select class="form-control people-search" ng-model="people" ng-options="opt for opt in passengers">
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: inline-block; width: 100%;">
-                        <div>
+                        <div style="margin-top:10px;">
                             <div class="col-sm-6">
                                 <p class="input-group">
                                     <input type="text" class="form-control" placeholder="Return" uib-datepicker-popup="[[format]]" ng-model="return" is-open="IsReturnOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
@@ -68,7 +71,16 @@
                                 </p>
                             </div>
                         </div>
-                        <div>
+                    </div>
+                    <div style="display: inline-block; width: 100%; margin-top: -15px;">
+                        <div style="margin-top: 10px;">
+                            <div class="col-sm-6 inner-addon right-addon-extra">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <select class="form-control people-search" ng-model="people" ng-options="opt for opt in passengers">
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 10px; margin-top: 10px;">
                             <div class="col-sm-6">
                                 <button type="submit" class="btn btn-success" style="width:100%;"><i class="glyphicon glyphicon-search"></i> &nbsp;Search </button>
                             </div>

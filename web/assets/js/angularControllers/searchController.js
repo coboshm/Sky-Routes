@@ -8,7 +8,7 @@ myApp.config(['$interpolateProvider', function ($interpolateProvider) {
     $interpolateProvider.endSymbol(']]');
 }]);
 
-myApp.controller('searchCtrl', function($scope, $http) {
+myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
 
 
     $scope.countries = [
@@ -67,6 +67,54 @@ myApp.controller('searchCtrl', function($scope, $http) {
 
     $scope.today();
 
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    $scope.animationsEnabled = true;
+
+    function detectmob() {
+        if( navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+        ){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    $scope.openModal = function (size) {
+
+        if (detectmob()) {
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'myModalContent.html',
+                controller: 'ModalInstanceCtrl',
+                size: size,
+                resolve: {
+                    countries: function () {
+                        return $scope.countries;
+                    },
+                    country: function () {
+                        return $scope.country;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.country = selectedItem;
+            }, function () {});
+        }
+    };
+
+    $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+    };
+
 });
 
 
@@ -74,3 +122,22 @@ Date.prototype.addDays = function(days) {
     this.setDate(this.getDate() + parseInt(days));
     return this;
 };
+
+
+myApp.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, countries, country) {
+
+    $scope.countries = countries;
+    $scope.country = country;
+
+    $scope.ok = function () {
+        $uibModalInstance.close($scope.country);
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+
+    $scope.changeCountry = function(country) {
+        $scope.country = country;
+    };
+});
