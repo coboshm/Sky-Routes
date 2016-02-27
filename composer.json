@@ -1,0 +1,43 @@
+{
+    "name": "mcobos/sky_rotues",
+    "require": {
+        "php": ">=5.4.0",
+        "beberlei/assert": "@stable",
+        "carlosbuenosvinos/ddd": "1.*",
+        "jms/serializer": "~0.16.0",
+        "predis/predis": "~1.0.0",
+        "rhumsaa/uuid": "~2.7.1",
+        "silex/silex": "~2.0@dev",
+        "silex/web-profiler": "~2.0@dev",
+        "symfony/config": "~2.5",
+        "symfony/console": "~2.5",
+        "symfony/form": "~2.5",
+        "symfony/security": "~2.5",
+        "symfony/translation": "~2.5",
+        "symfony/twig-bridge": "~2.5",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "monolog/monolog": "~1.17",
+        "symfony/yaml":"~2.7"
+    },
+    "require-dev": {
+        "behat/behat": "3.0.*",
+        "behat/mink": "1.5.*",
+        "behat/mink-goutte-driver": "*",
+        "phpunit/phpunit": "~4.2"
+    },
+    "authors": [
+        {
+            "name": "Marc Cobos",
+            "email": "coboshernandez@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "": ["src/"]
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}

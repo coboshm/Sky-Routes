@@ -1,0 +1,32 @@
+/vendor
+/.vagrant
+
+
+# IDE PHPStorm
+.idea
+*.iml
+
+# iOSX
+.DS_Store
+atlassian-ide-plugin.xml
+Session.vim
+.bash_profile
+sftp-*
+.hsftp
+
+# report ut
+Tests/reports/
+Tests/Unit/reports/
+
+# VIM
+.exrc
+*.swp
+
+vendor
+bin
+!/bin/console
+db.sqlite
+cache
+composer.lock
+node_modules
+web/components
