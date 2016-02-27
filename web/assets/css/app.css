@@ -194,7 +194,7 @@ select {
     display: none; !important;
 }
 
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 767px) {
     .not-mobile-hide {
         display: block; !important;
     }
@@ -203,5 +203,7 @@ select {
         background: transparent !important;
     }
 }
+
+
 
 
