@@ -32,7 +32,10 @@
                 <form class="tile" style="text-align: left;">
                     <div class="col-sm-12">
                         <div>
-                            <input type="text" placeholder="From" ng-model="cityFrom" uib-typeahead="airport as airport.city for airport in airports | filter:$viewValue | limitTo:8"  typeahead-min-length="2" class="form-control">
+                            <div class="inner-addon right-addon">
+                                <i class="glyphicon glyphicon-plane"></i>
+                                <input type="text" placeholder="From" ng-model="cityFrom" uib-typeahead="airport as airport.city for airport in airports | filter:$viewValue | limitTo:8"  typeahead-min-length="2" class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div style="display: inline-block; width: 100%;">
@@ -47,7 +50,7 @@
                             </div>
                         </div>
                         <div style="margin-top:10px; margin-bottom: 10px;">
-                            <div class="col-sm-6 inner-addon right-addon">
+                            <div class="col-sm-6 inner-addon right-addon-extra">
                                 <i class="glyphicon glyphicon-user"></i>
                                 <select class="form-control people-search" ng-model="people" ng-options="opt for opt in passengers">
                                 </select>
