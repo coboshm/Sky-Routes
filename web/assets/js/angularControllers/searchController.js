@@ -39,9 +39,21 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
 
     $http.defaults.headers.common['Accept'] = 'application/json';
     $http.defaults.headers.common['Access-Control-Allow-Headers'] = true;
-    $http.get('assets/airports.json').success(function(data) {
+
+    /*$http.get('assets/airports.json').success(function(data) {
          $scope.airports = data;
-    });
+    });*/
+
+    $scope.getLocation = function(val) {
+        query = 'http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/GB/GBP/en-GB?query=' + val + '&apiKey=we576790151656261625171748788772';
+        return $http.get(query).then(function(response){
+            console.log(response);
+            return 'test';
+            /*return response.data.results.map(function(item){
+                return item.formatted_address;
+            });*/
+        });
+    };
 
     $scope.departureOpen = function() {
         $scope.IsDepartureOpen = true;
@@ -66,8 +78,6 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
 
 
     $scope.today();
-
-    $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.animationsEnabled = true;
 

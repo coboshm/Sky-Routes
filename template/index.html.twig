@@ -46,7 +46,7 @@
                         <div>
                             <div class="inner-addon right-addon">
                                 <i class="glyphicon glyphicon-plane"></i>
-                                <input type="text" placeholder="From" ng-model="cityFrom" uib-typeahead="airport as airport.city for airport in airports | filter:$viewValue | limitTo:8"  typeahead-min-length="2" class="form-control">
+                                <input type="text" placeholder="From" ng-model="cityFrom" uib-typeahead="airport for airport in getLocation($viewValue)"  typeahead-min-length="2" class="form-control">
                             </div>
                         </div>
                     </div>
