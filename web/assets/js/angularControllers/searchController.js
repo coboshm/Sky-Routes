@@ -14,21 +14,27 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
     $scope.countries = [
         {
             name: 'ES',
-            currency: 'EUR'
+            currency: 'EUR',
+            lang: 'es-ES'
         },{
             name: 'FR',
-            currency: 'EUR'
+            currency: 'EUR',
+            lang: 'fr-FR'
         },{
             name: 'UK',
-            currency: 'GBP'
+            currency: 'GBP',
+            lang: 'en-GB'
         },{
             name: 'IT',
-            currency: 'EUR'
+            currency: 'EUR',
+            lang: 'it-IT'
         }, {
             name: 'GE',
-            currency: 'EUR'
+            currency: 'EUR',
+            lang: 'ge-GE'
         }
     ];
+
     $scope.passengers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     $scope.IsdepartureOpen = false;
     $scope.IsreturnOpen = false;
@@ -36,24 +42,31 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
     $scope.citiFrom = undefined;
     $scope.people = 1;
     $scope.country = $scope.countries[0];
+    $scope.old_val = '';
 
-    $http.defaults.headers.common['Accept'] = 'application/json';
-    $http.defaults.headers.common['Access-Control-Allow-Headers'] = true;
-
-    /*$http.get('assets/airports.json').success(function(data) {
-         $scope.airports = data;
-    });*/
 
     $scope.getLocation = function(val) {
-        query = 'http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/GB/GBP/en-GB?query=' + val + '&apiKey=we576790151656261625171748788772';
-        return $http.get(query).then(function(response){
-            console.log(response);
-            return 'test';
-            /*return response.data.results.map(function(item){
-                return item.formatted_address;
-            });*/
-        });
+        if (val != $scope.old_val && val.length > 2) {
+            return $http({
+                url: '/searchCountry',
+                method: "POST",
+                data: {
+                    'query': val,
+                    'country': $scope.country.name,
+                    'currency': $scope.country.currency,
+                    'lang': $scope.country.lang
+                }
+            })
+            .then(function (response) {
+                airports = JSON.parse(response.data);
+                $scope.old_val = val;
+                return airports.Places.map(function (item) {
+                    return item.PlaceName + ' (' + item.CountryId.replace('-sky', '') + ')';
+                });
+            });
+        }
     };
+
 
     $scope.departureOpen = function() {
         $scope.IsDepartureOpen = true;

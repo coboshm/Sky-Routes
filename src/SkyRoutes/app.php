@@ -15,6 +15,7 @@ use Silex\Provider\CsrfServiceProvider;
 $app = new Application();
 
 $app['debug'] = true;
+$app['key_skyScanner'] = 'we576790151656261625171748788772';
 
 $app->register(new ValidatorServiceProvider());
 $app->register(new ServiceControllerServiceProvider());

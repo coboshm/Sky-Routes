@@ -2,3 +2,7 @@ home:
   path: /
   defaults: { _controller: 'controller.home:indexAction' }
 
+searchCountry:
+  path: /searchCountry
+  defaults: { _controller: 'controller.api.searchCountry:indexAction' }
+  methods: POST
