@@ -48,7 +48,7 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
     $scope.getLocation = function(val) {
         if (val != $scope.old_val && val.length > 2) {
             return $http({
-                url: '/searchCountry',
+                url: 'searchCountry',
                 method: "POST",
                 data: {
                     'query': val,
