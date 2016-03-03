@@ -1,5 +1,6 @@
 <?php
 
+use SkyRoutes\Application\SearchFlies;
 use SkyRoutes\Infrastructure\ApiRepository;
 use SkyRoutes\Application\SearchCountry;
 
@@ -15,4 +16,8 @@ $app['infrastructure.api.repository'] = $app->factory(function () use ($app) {
  */
 $app['application.SearchCountry'] = $app->factory(function () use ($app) {
     return new SearchCountry($app['infrastructure.api.repository']);
+});
+
+$app['application.SearchFlies'] = $app->factory(function () use ($app) {
+    return new SearchFlies($app['infrastructure.api.repository']);
 });

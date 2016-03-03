@@ -39,7 +39,7 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
     $scope.IsdepartureOpen = false;
     $scope.IsreturnOpen = false;
 
-    $scope.citiFrom = undefined;
+    $scope.cityFrom = undefined;
     $scope.people = 1;
     $scope.country = $scope.countries[0];
     $scope.old_val = '';
@@ -48,7 +48,7 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
     $scope.getLocation = function(val) {
         if (val != $scope.old_val && val.length > 2) {
             return $http({
-                url: 'searchCountry',
+                url: 'index.php/searchCountry',
                 method: "POST",
                 data: {
                     'query': val,
@@ -60,11 +60,22 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
             .then(function (response) {
                 airports = JSON.parse(response.data);
                 $scope.old_val = val;
-                return airports.Places.map(function (item) {
-                    return item.PlaceName + ' (' + item.CountryId.replace('-sky', '') + ')';
+                list = airports.Places.map(function (item) {
+                    if (item.CityId != '-sky') {
+                        return {
+                            name: item.PlaceName + ' (' + item.CountryId.replace('-sky', '') + ')',
+                            placeId: item.CityId
+                        };
+                    }
                 });
+                list = list.filter(function(n){ return n != undefined });
+                return list;
             });
         }
+    };
+
+    $scope.submitSearchFlies = function() {
+        $scope.cityFrom = $scope.cityFrom.placeId;
     };
 
 

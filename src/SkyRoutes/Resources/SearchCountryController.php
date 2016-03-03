@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SearchCountryController
 {
+
+    public $searchCountry;
+
     /**
      * @param SearchCountry $searchCountry
      */

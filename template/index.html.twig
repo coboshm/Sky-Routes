@@ -39,13 +39,15 @@
         <img src="/assets/img/paris1.jpg" style="position:absolute; left:50%; top:50%; margin-left:-1000px; margin-top:-256px;max-width:none;"/>
         <div class="container" style="margin-top: 100px;">
             <div style="" class="center-block search-box">
-                <form class="tile" style="text-align: left;">
+                <form autocomplete="off" class="tile" style="text-align: left;" method="POST" action="index.php/searchFlies" ng-submit="submitSearchFlies()">
+                    <input type="hidden" name="lang" value="[[country.lang]]"/>
+                    <input type="hidden" name="country" value="[[country.name]]"/>
+                    <input type="hidden" name="currency" value="[[country.currency]]"/>
                     <div class="col-sm-12">
                         <div>
                             <div class="inner-addon right-addon">
                                 <i class="glyphicon glyphicon-plane"></i>
-                                <input type="text" ng-model="cityFrom" placeholder="From" uib-typeahead="address for address in getLocation($viewValue) | limitTo:8" typeahead-min-length="2" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
-
+                                <input type="text" ng-model="cityFrom" name="city" placeholder="From" uib-typeahead="address as address.name for address in getLocation($viewValue) | limitTo:8" typeahead-min-length="2" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -53,7 +55,7 @@
                         <div style="margin-top:10px;">
                             <div class="col-sm-6">
                                 <p class="input-group">
-                                    <input type="text" class="form-control" placeholder="Departure" uib-datepicker-popup="[[format]]" ng-model="departure" is-open="IsDepartureOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <input type="text" class="form-control" placeholder="Departure" name="departure" value="[[departure]]" uib-datepicker-popup="[[format]]" ng-model="departure" is-open="IsDepartureOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="departureOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
@@ -63,7 +65,7 @@
                         <div style="margin-top:10px;">
                             <div class="col-sm-6">
                                 <p class="input-group">
-                                    <input type="text" class="form-control" placeholder="Return" uib-datepicker-popup="[[format]]" ng-model="return" is-open="IsReturnOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <input type="text" class="form-control" placeholder="Return" name="return" value="[[return]]" uib-datepicker-popup="[[format]]" ng-model="return" is-open="IsReturnOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="returnOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
@@ -74,9 +76,6 @@
                     <div style="display: inline-block; width: 100%; margin-top: -15px;">
                         <div style="margin-top: 10px;">
                             <div class="col-sm-6 inner-addon right-addon-extra">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <select class="form-control people-search" ng-model="people" ng-options="opt for opt in passengers">
-                                </select>
                             </div>
                         </div>
                         <div style="margin-bottom: 10px; margin-top: 10px;">

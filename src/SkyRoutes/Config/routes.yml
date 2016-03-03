@@ -6,3 +6,8 @@ searchCountry:
   path: /searchCountry
   defaults: { _controller: 'controller.api.searchCountry:indexAction' }
   methods: POST
+
+searchFlies:
+  path: /searchFlies
+  defaults: { _controller: 'controller.api.searchFlies:indexAction' }
+  methods: POST
