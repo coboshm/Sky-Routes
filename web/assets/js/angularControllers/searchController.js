@@ -100,6 +100,10 @@ myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
         $scope.country = country;
     };
 
+    $scope.disabledDate = function(date, mode) {
+        return ( mode === 'day' && ( date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 4) );
+    };
+
 
     $scope.today();
 

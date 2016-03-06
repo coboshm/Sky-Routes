@@ -38,7 +38,10 @@ class SearchFlies
         $searchFliesEntity = new SearchFliesEntity($country, $lang, $currency, $city, $departure, $return);
         $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity);
         var_dump($jsonResults);
-        die();
+        $jsonResults = json_decode($jsonResults);
+
+        var_dump($jsonResults);
+        die('ola');
         return new JsonResponse($jsonResults);
     }
 

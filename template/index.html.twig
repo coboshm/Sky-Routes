@@ -55,7 +55,7 @@
                         <div style="margin-top:10px;">
                             <div class="col-sm-6">
                                 <p class="input-group">
-                                    <input type="text" class="form-control" placeholder="Departure" name="departure" value="[[departure]]" uib-datepicker-popup="[[format]]" ng-model="departure" is-open="IsDepartureOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <input type="text" class="form-control" placeholder="Departure" name="departure" value="[[departure]]" uib-datepicker-popup="[[format]]" ng-model="departure" is-open="IsDepartureOpen" date-disabled="disabledDate(date, mode)" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="departureOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
@@ -65,7 +65,7 @@
                         <div style="margin-top:10px;">
                             <div class="col-sm-6">
                                 <p class="input-group">
-                                    <input type="text" class="form-control" placeholder="Return" name="return" value="[[return]]" uib-datepicker-popup="[[format]]" ng-model="return" is-open="IsReturnOpen" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <input type="text" class="form-control" placeholder="Return" name="return" value="[[return]]" uib-datepicker-popup="[[format]]" ng-model="return" is-open="IsReturnOpen" date-disabled="disabledDate(date, mode)" min-date="minDate" max-date="maxDate" show-weeks="false" datepicker-options="dateOptions" show-button-bar="false" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="returnOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                                 </span>
