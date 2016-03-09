@@ -9,9 +9,12 @@ class SearchFliesController
 {
 
     private $twig;
-    private $templateName = 'index.html.twig';
+    private $templateName = 'fliesResults.html.twig';
 
     /**
+     * SearchFliesController constructor.
+     *
+     * @param \Twig_Environment $twig
      * @param SearchFlies $searchFlies
      */
     public function __construct(\Twig_Environment $twig, SearchFlies $searchFlies)
@@ -23,7 +26,7 @@ class SearchFliesController
     public function indexAction(Request $request)
     {
         parse_str($request->getContent(), $data);
-        $flies = $this->searchFlies->searchFlies(
+        $routes = $this->searchFlies->searchFlies(
             $data['country'],
             $data['lang'],
             $data['currency'],
@@ -31,7 +34,7 @@ class SearchFliesController
             $data['departure'],
             $data['return']
         );
-        var_dump($flies);
-        die();
+        $departure = $data['departureName'];
+        return $this->twig->render($this->templateName, ['routes' => $routes, 'departure' => $departure]);
     }
 }

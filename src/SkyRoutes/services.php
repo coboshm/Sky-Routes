@@ -21,3 +21,4 @@ $app['application.SearchCountry'] = $app->factory(function () use ($app) {
 $app['application.SearchFlies'] = $app->factory(function () use ($app) {
     return new SearchFlies($app['infrastructure.api.repository']);
 });
+

@@ -3,9 +3,6 @@ Sky Rotues = API Sky Scanner + PHP in DDD
 
 ## Requirements
 
-## Install assets
-    bower install
-
 ## Set up the project
     curl -sS https://getcomposer.org/installer | php
     php composer.phar install

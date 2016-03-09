@@ -30,7 +30,7 @@ class ApiRepository
     {
         $client = new Client();
 
-        $query = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/". $searchFliesEntity->getCountry();
+        $query = "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/". $searchFliesEntity->getCountry();
         $query .= "/". $searchFliesEntity->getLang() ."/";
         $query .= $searchFliesEntity->getCurrency() ."/" . $searchFliesEntity->getCity() . "/";
         $query .= "anywhere/" . $searchFliesEntity->getDeparture() . "/" . $searchFliesEntity->getReturn();

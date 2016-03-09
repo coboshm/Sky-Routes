@@ -1,14 +1,4 @@
-/**
- * Created by mcobos on 23/02/16.
- */
-var myApp = angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
-
-myApp.config(['$interpolateProvider', function ($interpolateProvider) {
-    $interpolateProvider.startSymbol('[[');
-    $interpolateProvider.endSymbol(']]');
-}]);
-
-myApp.controller('searchCtrl', function($scope, $http, $uibModal) {
+myApp.controller('fliesResultsCtrl', function($scope, $http, $uibModal) {
 
 
     $scope.countries = [

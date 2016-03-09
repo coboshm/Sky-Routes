@@ -2,6 +2,7 @@
 
 namespace SkyRoutes\Application;
 
+use SkyRoutes\Domain\RouteQuoteCollection;
 use SkyRoutes\Domain\SearchCountryEntity;
 use SkyRoutes\Domain\SearchFliesEntity;
 use SkyRoutes\Infrastructure\ApiRepository;
@@ -37,13 +38,8 @@ class SearchFlies
     {
         $searchFliesEntity = new SearchFliesEntity($country, $lang, $currency, $city, $departure, $return);
         $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity);
-        var_dump($jsonResults);
-        $jsonResults = json_decode($jsonResults);
-
-        var_dump($jsonResults);
-        die('ola');
-        return new JsonResponse($jsonResults);
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection = new RouteQuoteCollection($jsonResults['Quotes'], $jsonResults['Places']);
+        return $routeQuoteCollection->getJsonData();
     }
-
-
 }

@@ -12,10 +12,10 @@ use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\CsrfServiceProvider;
+use Predis\Client;
+
 $app = new Application();
 
-$app['debug'] = true;
-$app['key_skyScanner'] = 'we576790151656261625171748788772';
 
 $app->register(new ValidatorServiceProvider());
 $app->register(new ServiceControllerServiceProvider());
@@ -37,6 +37,14 @@ $app['routes'] = $app->extend('routes', function (RouteCollection $routes, Appli
 
     return $routes;
 });
+
+$app['predis'] = new Client(
+    [
+        'scheme' => 'tcp',
+        'host'   => '127.0.0.1',
+        'port'   => 6379,
+    ]
+);
 
 $app['twig'] = $app->factory($app->extend('twig', function ($twig) {
     return $twig;
