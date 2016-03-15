@@ -5,6 +5,7 @@ namespace SkyRoutes\Infrastructure;
 use SkyRoutes\Domain\SearchCountryEntity;
 use GuzzleHttp\Client;
 use SkyRoutes\Domain\SearchFliesEntity;
+use SkyRoutes\Domain\SearchTicketsEntity;
 
 class ApiRepository
 {
@@ -12,6 +13,11 @@ class ApiRepository
 
     public function __construct() {}
 
+    /**
+     * @param SearchCountryEntity $searchCountryEntity
+     *
+     * @return string
+     */
     public function searchCountry(SearchCountryEntity $searchCountryEntity)
     {
         $client = new Client();
@@ -26,19 +32,34 @@ class ApiRepository
         return $stream->getContents();
     }
 
-    public function searchFlies(SearchFliesEntity $searchFliesEntity)
+    /**
+     * @param SearchFliesEntity $searchFliesEntity
+     * @param string $where
+     *
+     * @return string
+     */
+    public function searchFlies(SearchFliesEntity $searchFliesEntity, $where = 'anywhere')
     {
         $client = new Client();
 
         $query = "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/". $searchFliesEntity->getCountry();
         $query .= "/". $searchFliesEntity->getLang() ."/";
         $query .= $searchFliesEntity->getCurrency() ."/" . $searchFliesEntity->getCity() . "/";
-        $query .= "anywhere/" . $searchFliesEntity->getDeparture() . "/" . $searchFliesEntity->getReturn();
+        $query .= $where . '/' . $searchFliesEntity->getDeparture() . "/" . $searchFliesEntity->getReturn();
         $query .= "?apiKey=".self::API_KEY;
 
         $res = $client->request('GET', $query, array('Accept' => 'application/json'));
         $stream = $res->getBody();
         return $stream->getContents();
+    }
+
+    /**
+     * @param SearchTicketsEntity $searchTicket
+     * @return string
+     */
+    public function searchTickets(SearchTicketsEntity $searchTicket)
+    {
+        return '';
     }
 
 }

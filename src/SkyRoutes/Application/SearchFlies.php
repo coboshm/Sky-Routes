@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SearchFlies
 {
+    const maxFlightsToShow = 20;
+
     /**
      * @var $apiRepository
      */
@@ -40,6 +42,27 @@ class SearchFlies
         $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity);
         $jsonResults = json_decode($jsonResults, true);
         $routeQuoteCollection = new RouteQuoteCollection($jsonResults['Quotes'], $jsonResults['Places']);
-        return $routeQuoteCollection->getJsonData();
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'ES');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'IT');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'FR');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'UK');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'GE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        return array_slice($routeQuoteCollection->getJsonData(), 0, self::maxFlightsToShow);
     }
 }

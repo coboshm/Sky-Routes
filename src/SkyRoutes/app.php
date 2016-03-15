@@ -38,14 +38,6 @@ $app['routes'] = $app->extend('routes', function (RouteCollection $routes, Appli
     return $routes;
 });
 
-$app['predis'] = new Client(
-    [
-        'scheme' => 'tcp',
-        'host'   => '127.0.0.1',
-        'port'   => 6379,
-    ]
-);
-
 $app['twig'] = $app->factory($app->extend('twig', function ($twig) {
     return $twig;
 }));
