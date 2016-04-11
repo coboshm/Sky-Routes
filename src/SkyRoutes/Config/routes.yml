@@ -11,3 +11,8 @@ searchFlies:
   path: /searchFlies
   defaults: { _controller: 'controller.api.searchFlies:indexAction' }
   methods: POST
+
+searchTickets:
+  path: /searchTickets
+  defaults: { _controller: 'controller.api.searchTickets:indexAction' }
+  methods: POST

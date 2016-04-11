@@ -3290,7 +3290,7 @@ fieldset[disabled] .btn-info.focus {
 .btn-warning {
   color: #fff;
   background-color: #f0ad4e;
-  border-color: #eea236;
+  border-color: #f05a28;
 }
 .btn-warning:focus,
 .btn-warning.focus {
@@ -3338,7 +3338,7 @@ fieldset[disabled] .btn-warning:focus,
 .btn-warning[disabled].focus,
 fieldset[disabled] .btn-warning.focus {
   background-color: #f0ad4e;
-  border-color: #eea236;
+  border-color: #f05a28;
 }
 .btn-warning .badge {
   color: #f0ad4e;

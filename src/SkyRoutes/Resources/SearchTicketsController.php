@@ -20,7 +20,7 @@ class SearchTicketsController
 
     public function indexAction(Request $request)
     {
-        $data = json_decode($request->getContent());
-        return $this->searchTickets->searchTickets();
+        $data = json_decode($request->getContent(), true);
+        return $this->searchTickets->searchTickets($data);
     }
 }

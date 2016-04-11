@@ -3383,7 +3383,7 @@
      *
      * ```html
      * <div ng-repeat="item in items" class="slide">
-     *   {{ item }}
+     *   [[ item ]]
      * </div>
      * ```
      *
@@ -3684,15 +3684,15 @@
      <h2>Welcome to the home page</h1>
      <p>Please click on an element</p>
      <a class="record"
-     ng-href="#/profile/{{ record.id }}"
-     ng-animate-ref="{{ record.id }}"
+     ng-href="#/profile/[[ record.id ]]"
+     ng-animate-ref="[[ record.id ]]"
      ng-repeat="record in records">
-     {{ record.title }}
+     [[ record.title ]]
      </a>
      </file>
      <file name="profile.html">
-     <div class="profile record" ng-animate-ref="{{ profile.id }}">
-     {{ profile.title }}
+     <div class="profile record" ng-animate-ref="[[ profile.id ]]">
+     [[ profile.title ]]
      </div>
      </file>
      <file name="animations.css">

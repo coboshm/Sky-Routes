@@ -34,7 +34,6 @@ class SearchFliesController
             $data['departure'],
             $data['return']
         );
-        $departure = $data['departureName'];
-        return $this->twig->render($this->templateName, ['routes' => $routes, 'departure' => $departure]);
+        return $this->twig->render($this->templateName, ['routes' => $routes, 'search' => $data]);
     }
 }

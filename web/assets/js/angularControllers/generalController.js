@@ -1,7 +1,7 @@
 /**
  * Created by mcobos on 23/02/16.
  */
-var myApp = angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
+var myApp = angular.module('myApp', [ 'ui.bootstrap','ngSanitize', 'ngTouch', 'ngAnimate', 'rgkevin.datetimeRangePicker']);
 
 myApp.config(['$interpolateProvider', function ($interpolateProvider) {
     $interpolateProvider.startSymbol('[[');
@@ -10,7 +10,8 @@ myApp.config(['$interpolateProvider', function ($interpolateProvider) {
 
 var EVENTS = {
     COUNTRY_CHANGE: 'countryChange',
-    ASK_COUNTRY: 'askCountry'
+    ASK_COUNTRY: 'askCountry',
+    FILTER_DATE_CHANGE: 'filterDateChange'
 };
 
 myApp.controller('generalCtrl', function($rootScope, $scope, $http, $uibModal) {

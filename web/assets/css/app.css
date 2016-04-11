@@ -131,13 +131,13 @@ input.ng-invalid {
 
 #slideshow-one {
     display: none;
-    position: absolute;
+    position: fixed;
     width: 100%;
     padding: 0;
 }
 
 #slideshow-one > img {
-    height: 450px;
+    height: 100%;
 }
 
 @media (max-width: 629px) {
@@ -151,6 +151,24 @@ input.ng-invalid {
         box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
         background: rgba(255, 255, 255, 1);
         border-color:rgba(255, 255, 255, 0.00);
+    }
+}
+
+.non-mobile {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .mobile {
+        display: block;
+    }
+
+    .non-mobile {
+        display: none;
     }
 }
 
