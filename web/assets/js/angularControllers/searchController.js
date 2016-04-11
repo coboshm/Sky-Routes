@@ -3,13 +3,18 @@
  */
 myApp.controller('searchCtrl', function($rootScope, $scope, $http) {
 
-    $scope.cityFrom = undefined;
+    $scope.cityFrom = [];
     $scope.old_val = '';
     $scope.animationsEnabled = true;
     $scope.country = [];
-    $scope.departure = new Date();
-    $scope.return = new Date();
-    $scope.return.addDays(3);
+
+    $scope.initSearch = function(search) {
+        var searchObj = JSON.parse(search);
+        $scope.departure = searchObj.departure;
+        $scope.return = searchObj.return;
+        $scope.cityFrom.name = searchObj.departureName;
+        $scope.cityFrom.placeId = searchObj.city;
+    };
 
     $scope.getLocation = function(val) {
         if (val != $scope.old_val && val.length > 2) {

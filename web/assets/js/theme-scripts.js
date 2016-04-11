@@ -213,6 +213,7 @@ function changeTraveloElementUI() {
         buttonImage: 'images/icon/blank.png',
         buttonText: '',
         buttonImageOnly: true,
+        dateFormat: 'yy-mm-dd',
         /*showOtherMonths: true,*/
         minDate: 0,
         dayNamesMin: ["S", "M", "T", "W", "T", "F", "S"],

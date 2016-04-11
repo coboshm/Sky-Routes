@@ -154,6 +154,24 @@ input.ng-invalid {
     }
 }
 
+.non-mobile {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .mobile {
+        display: block;
+    }
+
+    .non-mobile {
+        display: none;
+    }
+}
+
 @media (max-width: 995px) {
     #slideshow {
         display: none;

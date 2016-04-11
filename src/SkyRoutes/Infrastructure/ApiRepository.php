@@ -59,8 +59,34 @@ class ApiRepository
      */
     public function searchTickets(SearchTicketsEntity $searchTicket)
     {
-        return '';
+        $client = new Client();
+
+        $response = $client->request('POST', 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0', [
+            'form_params' => [
+                'apiKey' => self::API_KEY,
+                'country' => $searchTicket->getCountry(),
+                'currency' => $searchTicket->getCurrency(),
+                'locale' => $searchTicket->getLocale(),
+                'adults' => $searchTicket->getAdults(),
+                'originplace' => $searchTicket->getOriginplace() . '-sky',
+                'destinationplace' => $searchTicket->getDestinationplace(). '-sky',
+                'outbounddate' => $searchTicket->getOutbounddate(),
+                'inbounddate' => $searchTicket->getInbounddate()
+            ],
+            'headers' => [
+                'Accept' => 'application/json'
+            ]
+        ]);
+
+        $sessionUrl = $response->getHeader('Location')[0];
+
+        $query = $sessionUrl . '?apiKey=' . self::API_KEY;
+        $res = $client->request('GET', $query, array('Accept' => 'application/json'));
+        $stream = $res->getBody();
+        return $stream->getContents();
     }
+
+
 
 }
 

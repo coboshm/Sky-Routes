@@ -2,6 +2,7 @@
 
 namespace SkyRoutes\Application;
 
+use SkyRoutes\Domain\FlightsCollection;
 use SkyRoutes\Domain\SearchTicketsEntity;
 use SkyRoutes\Infrastructure\ApiRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,12 +24,25 @@ class SearchTickets
         $this->apiRepository = $apiRepository;
     }
 
-
-    public function searchTickets()
+    /**
+     * @param $searchData
+     *
+     * @return JsonResponse
+     */
+    public function searchTickets($searchData)
     {
-        $searchCountryEntity = new SearchTicketsEntity();
+        $searchCountryEntity = new SearchTicketsEntity($searchData);
         $jsonResults = $this->apiRepository->searchTickets($searchCountryEntity);
-        return new JsonResponse($jsonResults);
+        $jsonResults = json_decode($jsonResults, true);
+        $flightsCollection = new FlightsCollection(
+            $jsonResults['Itineraries'],
+            $jsonResults['Legs'],
+            $jsonResults['Carriers'],
+            $jsonResults['Agents'],
+            $jsonResults['Places']
+        );
+
+        return new JsonResponse($flightsCollection->getJsonData());
     }
 
 
