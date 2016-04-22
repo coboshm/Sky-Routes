@@ -8,14 +8,43 @@
     <title>WeekEm</title>
 
 
-    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.noconflict.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-ui.1.10.4.min.js"></script>
+
+    <!-- load revolution slider scripts -->
+    <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.revolution.js"></script>
+
+    <!-- load page Javascript -->
+    <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
+    <script type="text/javascript" src="/assets/js/scripts.js"></script>
+    <script type="text/javascript">
+        tjq(document).ready(function() {
+            tjq('.revolution-slider').revolution(
+                    {
+                        sliderLayout:"fullscreen",
+                        gridwidth:1230,
+                        gridheight:720
+                    });
+        });
+    </script>
+
     <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="/assets/js/angular.js"></script>
     <script type="text/javascript" src="/assets/js/angular-animate.js"></script>
     <script type="text/javascript" src="/assets/js/ui-bootstrap-tpls-1.1.2.js"></script>
+    <script type="text/javascript" src="/assets/js/angular-sanitize.js"></script>
+    <script type="text/javascript" src="/assets/js/angular-slider.js"></script>
+    <script type="text/javascript" src="/assets/js/angular-touch.js"></script>
+
+    <script type="text/javascript" src="/assets/js/range-picker.js"></script>
+
     <script type="text/javascript" src="/assets/js/angularControllers/generalController.js"></script>
     <script type="text/javascript" src="/assets/js/angularControllers/searchController.js"></script>
     <script type="text/javascript" src="/assets/js/angularControllers/fliesResultsController.js"></script>
+    <script type="text/javascript" src="/assets/js/angularControllers/filterDataController.js"></script>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -30,6 +59,7 @@
 
     <!-- Main Style -->
     <link id="main-style" rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/range-picker.css">
 
     <!-- Current Page Styles -->
     <link rel="stylesheet" type="text/css" href="/assets/components/revolution_slider/css/settings.css" media="screen" />
@@ -55,7 +85,11 @@
 
     {% include 'google-analytics.html' only %}
 </head>
+<<<<<<< HEAD
 <body ng-app="ui.bootstrap.demo" ng-controller="generalCtrl">
+=======
+<body ng-app="myApp" ng-controller="generalCtrl">
+>>>>>>> develop
 
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
@@ -96,73 +130,5 @@
     {% block content %}{% endblock %}
     <footer>
     </footer>
-
-    <!-- Javascript -->
-    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.noconflict.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery-ui.1.10.4.min.js"></script>
-
-    <!-- load revolution slider scripts -->
-    <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script>
-    <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.revolution.min.js"></script>
-
-    <!-- load page Javascript -->
-    <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
-    <script type="text/javascript" src="/assets/js/scripts.js"></script>
-    <script type="text/javascript">
-        tjq(document).ready(function() {
-            tjq('.revolution-slider').revolution(
-                {
-                    dottedOverlay:"none",
-                    delay:9000,
-                    startwidth:1200,
-                    startheight:350,
-                    onHoverStop:"off",
-                    hideThumbs:10,
-                    fullWidth:"on",
-                    forceFullWidth:"on",
-                    shadow:10,
-                    navigationType:"none"
-                });
-        });
-
-        function convertTimeToHHMM(t) {
-            var minutes = t % 60;
-            var hour = (t - minutes) / 60;
-            var timeStr = (hour + "").lpad("0", 2) + ":" + (minutes + "").lpad("0", 2);
-            var date = new Date("2014/01/01 " + timeStr + ":00");
-            var hhmm = date.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-            return hhmm;
-        }
-
-        tjq("#flight-times-departure").slider({
-            range: true,
-            min: 0,
-            max: 1440,
-            step: 5,
-            values: [ 360, 1200 ],
-            slide: function( event, ui ) {
-                tjq(".start-time-label-departure").val( convertTimeToHHMM(ui.values[0]) );
-                tjq(".end-time-label-departure").val( convertTimeToHHMM(ui.values[1]) );
-            }
-        });
-        tjq(".start-time-label-departure").val(convertTimeToHHMM(tjq("#flight-times-departure").slider( "values", 0 )));
-        tjq(".end-time-label-departure").val(convertTimeToHHMM(tjq("#flight-times-departure").slider( "values", 1 )));
-
-        tjq("#flight-times-return").slider({
-            range: true,
-            min: 0,
-            max: 1440,
-            step: 5,
-            values: [ 360, 1200 ],
-            slide: function( event, ui ) {
-                tjq(".start-time-label-return").val( convertTimeToHHMM(ui.values[0]) );
-                tjq(".end-time-label-return").val( convertTimeToHHMM(ui.values[1]) );
-            }
-        });
-        tjq(".start-time-label-return").val(convertTimeToHHMM(tjq("#flight-times-return").slider( "values", 0 )));
-        tjq(".end-time-label-return").val(convertTimeToHHMM(tjq("#flight-times-return").slider( "values", 1 )));
-
-    </script>
 </body>
 </html>

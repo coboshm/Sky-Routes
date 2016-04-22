@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="toggle-container filters-container">
                     <div class="panel style1 arrow-right">
                         <h4 class="panel-title">
@@ -57,6 +58,20 @@
                                 <input class="end-time-label-return pull-right" disabled style="border:none; width:60px;"/>
                                 <div class="clearer"></div>
                             </div><!-- end content -->
+=======
+                <div class="search-results-title filters-container" ng-controller="filterDataCtrl">
+                    <div class="style1 arrow-right" style="padding-bottom: 10px; padding-top: 10px;">
+                        <h4 class="panel-title">
+                            <h4><i class="soap-icon-clock"></i> Flight Times</h4>
+                        </h4>
+                        <div id="flight-times-filter">
+                            <div class="panel-content">
+                                <label>Departure Time</label>
+                                <div rg-range-picker="timeRangePickerDeparture"></div>
+                                <label style="margin-top:10px;">Return Time</label>
+                                <div rg-range-picker="timeRangePickerReturn"></div>
+                            </div>
+>>>>>>> develop
                         </div>
                     </div>
                 </div>
@@ -95,7 +110,12 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="second-row" ng-show="loadedFlights && !loadingFlights" ng-repeat="flight in flights |limitTo: limitShow">
+=======
+                                <div ng-show="loadedFlights && !loadingFlights" ng-repeat="flight in flights">
+                                    <div ng-show="showFlight(flight, $index)"  class="second-row">
+>>>>>>> develop
                                         <div style="border-bottom: 1px solid #f5f5f5;  padding-bottom: 3px; width: 80%;">
                                             <div class="take-off col-sm-6">
                                                 <div>
@@ -132,6 +152,10 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
+=======
+                                    </div>
+>>>>>>> develop
                                 </div>
                             </div>
                         </div>

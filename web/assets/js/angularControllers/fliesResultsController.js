@@ -48,17 +48,22 @@ myApp.controller('fliesResultsCtrl', function($rootScope, $scope, $http, $timeou
         });
     };
 
+    $scope.showFlight = function(flight, index) {
+
+        return index < 5;
+    };
+
     function callAtTimeout(val) {
         $scope.loadFlight(val + 1);
     }
 
-    function startTime() {
-        console.log('hello');
-    }
+    $rootScope.$on(EVENTS.FILTER_DATE_CHANGE, function(event, departureInit, departureEnd, returnInit, returnEnd) {
+        console.log(departureEnd);
+        console.log(departureInit);
+        console.log(returnInit);
+        console.log(returnEnd);
+    });
 
-    function endTime() {
-        console.log('end');
-    }
 
 });
 

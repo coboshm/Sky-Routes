@@ -4,7 +4,7 @@
  */
 
 .fullwidthbanner-container {
-    max-height: 350px !important;
+    height: 100% !important;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -235,11 +235,11 @@
 }
 .tp-caption.largewhitebg_button1_blue:hover {
     background-color: #fff;
-    color: #01b7f2;
+    color: #213F99;
 }
 .tp-caption.largewhitebg_button1_yellow:hover {
     background-color: #fff;
-    color: #fdb714;
+    color: #F05A28;
 }
 .tp-caption.largewhitebg_button1_green:hover {
     background-color: #fff;
