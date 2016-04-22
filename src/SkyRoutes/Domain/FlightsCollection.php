@@ -49,7 +49,7 @@ class FlightsCollection extends \ArrayObject {
                 $itineraryData['departureToCity']       = $placeDepartureGo['Name'];
                 $itineraryData['departureAirline']      = $carrierDeparture['Name'];
                 $itineraryData['departureAirlineImg']   = $carrierDeparture['ImageUrl'];
-                $itineraryData['returnTimeData']        = $inboundLeg['Departure'];
+                $itineraryData['returnTimeDate']        = $inboundLeg['Departure'];
                 $itineraryData['returnFromCity']        = $placeReturn['Name'];
                 $itineraryData['returnToCity']          = $placeReturnGo['Name'];
                 $itineraryData['returnAriline']         = $carrierReturn['Name'];

@@ -28,11 +28,11 @@ myApp.controller('filterDataCtrl', function($rootScope, $scope) {
     };
 
     $scope.$watch('timeRangePickerDeparture.time', function() {
-        console.log('form model has been changed');
+        $rootScope.$emit(EVENTS.FILTER_DATE_CHANGE_DEPARTURE, $scope.timeRangePickerDeparture.time);
     }, true);
 
     $scope.$watch('timeRangePickerReturn.time', function() {
-        console.log('form model has been changed');
+        $rootScope.$emit(EVENTS.FILTER_DATE_CHANGE_RETURN, $scope.timeRangePickerReturn.time);
     }, true);
 
 

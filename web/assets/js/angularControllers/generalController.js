@@ -11,7 +11,8 @@ myApp.config(['$interpolateProvider', function ($interpolateProvider) {
 var EVENTS = {
     COUNTRY_CHANGE: 'countryChange',
     ASK_COUNTRY: 'askCountry',
-    FILTER_DATE_CHANGE: 'filterDateChange'
+    FILTER_DATE_CHANGE_DEPARTURE: 'filterDateChangeDeparture',
+    FILTER_DATE_CHANGE_RETURN: 'filterDateChangeReturn'
 };
 
 myApp.controller('generalCtrl', function($rootScope, $scope, $http, $uibModal) {
