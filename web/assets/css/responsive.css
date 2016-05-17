@@ -350,8 +350,7 @@
 @media (max-width: 991px) {
   .container {
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px; }
+  }
 
   .page-title-container.style4 .page-title {
     margin-left: -15px;

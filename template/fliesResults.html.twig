@@ -53,13 +53,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-8 col-md-9" style="margin-bottom: 55px;">
                 {% for key,route in routes %}
-                    <article class="box" ng-controller="fliesResultsCtrl" ng-init="initRoute('{{ route|json_encode()  }}', '{{ key }}', '{{ search|json_encode() }}')">
-                        <figure class="col-xs-3 col-sm-2">
-                            <span><img alt="" src="http://placehold.it/270x160"></span>
-                        </figure>
-                        <div class="details col-xs-9 col-sm-10">
+                    <div class="box" ng-controller="fliesResultsCtrl" ng-init="initRoute('{{ route|json_encode()  }}', '{{ key }}', '{{ search|json_encode() }}')">
+                       <div class="details col-xs-12">
                             <div class="details-wrapper">
                                 <div class="first-row">
                                     <div>
@@ -129,9 +126,9 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 {% endfor %}
-            <div>
+            </div>
         </div>
     </div>
 {% endblock %}
