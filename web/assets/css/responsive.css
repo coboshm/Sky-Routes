@@ -362,7 +362,7 @@
     #header .logo {
       float: none !important;
       position: static !important;
-      padding-top: 19px;
+      padding-top: 5px;
       height: 66px;
       margin: 0 !important;
       display: block; }
@@ -371,13 +371,8 @@
       #header .logo a {
         background-size: auto 30px; }
       #header .logo img {
-        height: 30px;
-        width: auto;
-        filter: alpha(opacity=0) !important;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)" !important;
-        -moz-opacity: 0 !important;
-        -khtml-opacity: 0 !important;
-        opacity: 0 !important; }
+        height: 60px;
+        width: auto;}
     #header .main-navigation {
       background: #fff; }
     #header .mobile-menu-toggle {
