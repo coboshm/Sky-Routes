@@ -4103,7 +4103,7 @@ ul.check-circle li:before {
       display: table-row; }
       .listing-style3.flight .details .details-wrapper > * > *  > * {
         display: table-cell;
-        padding: 15px 15px 0 15px; }
+        padding: 10px 2px 0 2px; }
         .listing-style3.flight .details .details-wrapper > * > * {
           padding-left: 0; }
         .listing-style3.flight .details .details-wrapper > * > *:last-child {
@@ -5007,7 +5007,6 @@ ul.check-circle li:before {
 /* 3. Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* 3.1. Main Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #header {
-  position: relative;
   z-index: 999;
   /* Logo */
   /* 3.1.1. Mobile navigation */
@@ -6498,10 +6497,6 @@ ul.menu.mini {
 /* 4. Search Form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* 4.1. Default Style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.search-box {
-  margin-top: -80px;
-  position: relative;
-  z-index: 99; }
 
 ul.search-tabs {
   margin: 0;
@@ -7456,7 +7451,9 @@ ul.search-tabs {
     margin-bottom: 0; }
 
 .flight-list {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-top: 20px;
+}
 
 .flight-booking-details .details {
   padding: 0;
