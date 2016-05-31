@@ -5,7 +5,7 @@
         "beberlei/assert": "@stable",
         "silex/silex": "~2.0@dev",
         "silex/web-profiler": "~2.0@dev",
-        "symfony/config": "~2.5",
+        "symfony/config": "^3.1",
         "symfony/console": "~2.5",
         "symfony/form": "~2.5",
         "symfony/security": "~2.5",
@@ -13,10 +13,11 @@
         "symfony/serializer": "~2.5",
         "twig/twig": ">=1.8,<2.0-dev",
         "monolog/monolog": "~1.17",
-        "symfony/yaml":"~2.7",
+        "symfony/yaml":"^3.1",
         "guzzlehttp/guzzle": "~6.0",
         "predis/predis": "~1.0",
-        "symfony/translation": "^3.0"
+        "symfony/translation": "^3.0",
+        "symfony/validator": "^3.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.2"

@@ -17,31 +17,10 @@ var EVENTS = {
 
 myApp.controller('generalCtrl', function($rootScope, $scope, $http, $uibModal) {
 
-    $scope.countries = [
-        {
-            name: 'ES',
-            currency: 'EUR',
-            lang: 'es-ES'
-        },{
-            name: 'FR',
-            currency: 'EUR',
-            lang: 'fr-FR'
-        },{
-            name: 'UK',
-            currency: 'GBP',
-            lang: 'en-GB'
-        },{
-            name: 'IT',
-            currency: 'EUR',
-            lang: 'it-IT'
-        }, {
-            name: 'GE',
-            currency: 'EUR',
-            lang: 'ge-GE'
-        }
-    ];
-
-    $scope.country = $scope.countries[0];
+    $scope.initLang = function(country, lang, currency) {
+        $scope.country = {'name': country, 'lang': lang, 'currency': currency};
+        $rootScope.$emit(EVENTS.COUNTRY_CHANGE, $scope.country);
+    };
 
     $scope.changeCountry = function(country) {
         $scope.country = country;

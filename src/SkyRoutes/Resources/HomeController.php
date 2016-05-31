@@ -2,6 +2,8 @@
 
 namespace SkyRoutes\Resources;
 
+use Symfony\Component\Translation\Translator;
+
 class HomeController
 {
 
@@ -11,8 +13,9 @@ class HomeController
 
     /**
      * @param \Twig_Environment $twig
+     * @param Translator $translator
      */
-    public function __construct(\Twig_Environment $twig)
+    public function __construct(\Twig_Environment $twig, Translator $translator)
     {
         $this->twig = $twig;
     }

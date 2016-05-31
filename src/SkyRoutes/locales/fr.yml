@@ -1,0 +1,22 @@
+locale: FR
+currency: EUR
+country: FR
+localeAngular: fr-FR
+where: Départ
+leavingfrom: Origine
+cityairport: Ville ou aéroport
+when: Date du voyage
+departingon: Aller
+arrivingon: Retour
+searchnow: Rechercher
+currency: Devise
+yoursearch: Votre recherche
+searchagain: Nouvelle recherche
+flightime: Horaires
+departuretime: Aller
+returntime: Retour
+to: à
+priceperperson: À partir de 
+getitfor: Meilleur prix
+seeflights: Voir les vols
+loadingflights: Chargement

@@ -4,14 +4,14 @@ myApp.controller('fliesResultsCtrl', function($rootScope, $scope, $http, $timeou
     $scope.search = [];
     $scope.index = null;
     $scope.LoadedFlights = false;
-    $scope.limitShow = 4;
+    $scope.limitShow = 10;
     $scope.invalitShow = 0;
 
     $scope.initRoute = function(route, index, search) {
         $scope.route = JSON.parse(route);
         $scope.search = JSON.parse(search);
         $scope.index = index;
-        if (index < 5) {
+        if (index < 10) {
             $scope.loadingFlights = true;
             $scope.loadFlight(0);
         }
