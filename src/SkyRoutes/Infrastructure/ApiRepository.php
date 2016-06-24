@@ -9,7 +9,7 @@ use SkyRoutes\Domain\SearchTicketsEntity;
 
 class ApiRepository
 {
-    const API_KEY = 'we576790151656261625171748788772';
+    const API_KEY = 'XXX';
 
     public function __construct() {}
 
