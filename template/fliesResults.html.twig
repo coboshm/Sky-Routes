@@ -2,37 +2,37 @@
 
 
 {% block content %}
-    <div class="container" style="margin-top:20px;">
+    <div class="container">
         <div class="flight-list listing-style3 flight">
             <div class="col-sm-4 col-md-3 non-mobile">
                 <div class="search-results-title" style="padding-bottom: 10px; padding-top: 10px;" ng-controller="searchCtrl" ng-init="initSearch('{{ search|json_encode()  }}')">
                     <h4 class="panel-title">
-                        <h4><i class="soap-icon-search"></i> Your Search</h4>
+                        <h4><i class="soap-icon-search"></i>{{ 'yoursearch'|trans }}</h4>
                     </h4>
                     <div id="modify-search-panel">
                         <div class="panel-content">
-                            <form autocomplete="off" method="POST" action="/index.php/searchFlies" ng-submit="submitSearchFlies()">
+                            <form autocomplete="off" method="POST" action="/{{ 'locale'|trans|lower }}/searchFlies" ng-submit="submitSearchFlies()">
                                 <input type="hidden" name="lang" value="[[country.lang]]"/>
                                 <input type="hidden" name="country" value="[[country.name]]"/>
                                 <input type="hidden" name="currency" value="[[country.currency]]"/>
                                 <input type="hidden" name="departureName" value="[[cityName]]"/>
                                 <div class="form-group" style="position: relative;">
-                                    <label>Leaving from</label>
-                                    <input type="text" ng-model="cityFrom" name="city" placeholder="city, distirct or specific airpot" uib-typeahead="address as address.name for address in getLocation($viewValue) | limitTo:5" typeahead-min-length="2" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-text full-width">
+                                    <label>{{ 'leavingfrom'|trans }}</label>
+                                    <input type="text" ng-model="cityFrom" name="city" placeholder="{{ 'cityairport'|trans }}" uib-typeahead="address as address.name for address in getLocation($viewValue) | limitTo:5" typeahead-min-length="2" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-text full-width">
                                 </div>
                                 <div class="form-group">
-                                    <label>Departure on</label>
+                                    <label>{{ 'departingon'|trans }}</label>
                                     <div class="datepicker-wrap">
                                         <input type="text"  name="departure" value="[[departure]]" class="input-text full-width" ng-model="departure" placeholder="yyyy/mm/dd" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Arriving On</label>
+                                    <label>{{ 'arrivingon'|trans }}</label>
                                     <div class="datepicker-wrap">
                                         <input type="text"  name="return" value="[[return]]" class="input-text full-width" ng-model="return" placeholder="yyyy/mm/dd" />
                                     </div>
                                 </div>
-                                <button class="btn-medium icon-check uppercase full-width">search again</button>
+                                <button class="btn-medium icon-check uppercase full-width">{{ 'searchagain'|trans }}</button>
                             </form>
                         </div>
                     </div>
@@ -40,13 +40,13 @@
                 <div class="search-results-title filters-container" ng-controller="filterDataCtrl">
                     <div class="style1 arrow-right" style="padding-bottom: 10px; padding-top: 10px;">
                         <h4 class="panel-title">
-                            <h4><i class="soap-icon-clock"></i> Flight Times</h4>
+                            <h4><i class="soap-icon-clock"></i>{{ 'flightime'|trans }}</h4>
                         </h4>
                         <div id="flight-times-filter">
                             <div class="panel-content">
-                                <label>Departure Time</label>
+                                <label>{{ 'departuretime'|trans }}</label>
                                 <div rg-range-picker="timeRangePickerDeparture"></div>
-                                <label style="margin-top:10px;">Return Time</label>
+                                <label style="margin-top:10px;">{{ 'returntime'|trans }}</label>
                                 <div rg-range-picker="timeRangePickerReturn"></div>
                             </div>
                         </div>
@@ -55,27 +55,23 @@
             </div>
             <div class="col-sm-8 col-md-9">
                 {% for key,route in routes %}
-                    <article class="box" ng-controller="fliesResultsCtrl" ng-init="initRoute('{{ route|json_encode()  }}', '{{ key }}', '{{ search|json_encode() }}')">
-                        <figure class="col-xs-3 col-sm-2">
-                            <span><img alt="" src="http://placehold.it/270x160"></span>
-                        </figure>
-                        <div class="details col-xs-9 col-sm-10">
+                    <div class="box" ng-controller="fliesResultsCtrl" ng-init="initRoute('{{ route|json_encode()  }}', '{{ key }}', '{{ search|json_encode() }}')">
+                       <div class="details col-xs-12">
                             <div class="details-wrapper">
                                 <div class="first-row">
                                     <div>
-                                        <h4 class="box-title">{{ route['origin']['name'] }}  to {{ route['destination']['name'] }}
-                                            <small>{{ route['origin']['countryName']}} to {{ route['destination']['countryName']}}</small>
+                                        <h4 style="width: 220px;" class="box-title">{{ route['origin']['name'] }}  {{ 'to'|trans }} {{ route['destination']['name'] }}
+                                            <small>{{ route['origin']['countryName']}} {{ 'to'|trans }} {{ route['destination']['countryName']}}</small>
                                         </h4>
-                                        </a>
                                     </div>
-                                    <div style="border-right: none;">
-                                        <span style="margin:0 10px 15px 0;" class="price"><small>Price per person</small>{{ route['minPrice'] }}</span>
+                                    <div style="border-right: none;" class="non-mobile">
+                                        <span style="margin:0 10px 15px 0;" class="price"><small>{{ 'priceperperson'|trans }}</small>{{ route['minPrice'] }}</span>
                                     </div>
                                 </div>
                                 <div class="second-row" ng-show="loadingFlights">
                                     <div style="width:80%;">
                                         <div style="margin: 20px 0 20px 0; text-align: center;">
-                                            <small>Loading flights</small>
+                                            <small>{{ 'loadingflights'|trans }}</small>
                                             <img src="/assets/images/gif/planesLoading.gif" alt="loading" />
                                         </div>
                                     </div>
@@ -83,23 +79,23 @@
                                 <div class="second-row" ng-show="!loadedFlights && !loadingFlights">
                                     <div style="width:80%;">
                                         <div style="margin: 20px 0 20px 0;">
-                                            <button class="btn-medium soap-icon-plane" ng-click="loadFlight()">See flights</button>
+                                            <button class="btn-medium soap-icon-plane" ng-click="loadFlight()">{{ 'seeflights'|trans }}</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div ng-show="loadedFlights && !loadingFlights" ng-repeat="flight in flights">
                                     <div ng-show="showFlight(flight, $index)"  class="second-row">
-                                        <div style="border-bottom: 1px solid #f5f5f5;  padding-bottom: 3px; width: 80%;">
+                                        <div style="border-bottom: 1px solid #f5f5f5;  padding-bottom: 3px; width: 84%;">
                                             <div class="take-off col-sm-6">
                                                 <div>
                                                     <div style="display: inline-table;">
                                                         <img ng-src='[[flight.departureAirlineImg | trusted]]' width="60px" style="padding-top: 5px;" alt="[[flight.departureAirline]]"/>
                                                     </div>
                                                     <div style="display: inline-table; vertical-align: top; padding-left: 5px;">
-                                                        <span class="skin-color">
-                                                            [[flight.departureFromCity]] to [[flight.departureToCity]]<br />
+                                                        <div class="skin-color" style="width: 150px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                                            [[flight.departureFromCity]] {{ 'to'|trans }} [[flight.departureToCity]]<br />
                                                             [[flight.departureTimeDate | date:'MM/dd/yyyy HH:mm']]
-                                                        </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,19 +105,19 @@
                                                         <img ng-src='[[flight.returnAirlineImg | trusted]]' width="60px" style="padding-top: 5px;" alt="[[flight.returnAirline]]"/>
                                                     </div>
                                                     <div style="display: inline-table; vertical-align: top;padding-left: 5px;">
-                                                        <span class="skin-color">
-                                                            [[flight.returnFromCity]] to [[flight.returnToCity]]<br />
-                                                            [[flight.returnTimeData | date:'MM/dd/yyyy  HH:mm']]
-                                                        </span>
+                                                        <div class="skin-color" style="width: 150px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                                            [[flight.returnFromCity]] {{ 'to'|trans }} [[flight.returnToCity]]<br />
+                                                            [[flight.returnTimeDate | date:'MM/dd/yyyy  HH:mm']]
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div style="border-right: none; border-bottom: 1px solid #f5f5f5; padding-bottom: 20px; padding-top:5px;">
-                                            <div class="col-sm-4" style="padding-left: 20px; min-width: 100px;">
+                                            <div class="col-sm-4" style="padding-left: 4px;">
                                                 <div>
-                                                    <span class="small">Get it for:</span>
-                                                    <a href="[[flight.urlBooking]]" target="_blank" rel="nofollow" class="btn btn-success" style="width: 100px;" type="button">[[flight.price]]</a>
+                                                    <span class="small">{{ 'getitfor'|trans }}</span>
+                                                    <a href="[[flight.urlBooking]]" target="_blank" rel="nofollow" class="btn btn-success" style="width: 65px;" type="button">[[flight.price]]</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,11 +125,24 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 {% endfor %}
-            <div>
+            </div>
         </div>
     </div>
+    <footer class="non-mobile" id="footer" style="background-color: #ffffff;  width:100%; padding:20px 0 0 0; border-top: 1px solid #ececec; z-index:100;">
+        <div class="container">
+            <div class="logo pull-left" style="padding-left: 10px;">
+                <a href="http://Skyscanner.net" title="Skyscanner">
+                    Powered by:&nbsp;&nbsp;&nbsp; <img src="/assets/images/skyscanner.png" width="100px;" alt="SkyScanner">
+                </a>
+            </div>
+            <div class="copyright pull-right" style="padding-right: 10px;">
+                <p>© WeekEm</p>
+            </div>
+        </div>
+        </div>
+    </footer>
 {% endblock %}
 
 

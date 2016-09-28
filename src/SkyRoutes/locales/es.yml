@@ -1,0 +1,22 @@
+locale: ES
+currency: EUR
+country: ES
+localeAngular: es-ES
+where: Salida
+leavingfrom: Desde
+cityairport: Ciudad o aeropuerto
+when: Fecha del viaje
+departingon: Ida
+arrivingon: Vuelta
+searchnow: Buscar
+currency: Moneda
+yoursearch: Tu busqueda
+searchagain: Nueva busqueda
+flightime: Horarios
+departuretime: Ida
+returntime: Vuelta
+to: a
+priceperperson: Desde
+getitfor: Mejor precio
+seeflights: Ver vuelos
+loadingflights: Cargando

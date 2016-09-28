@@ -38,7 +38,7 @@
 					thumbAmount:3,
 
 					navigationType:"none",				// bullet, thumb, none
-					navigationArrows:"solo",				// nextto, solo, none
+					navigationArrows:"none",				// nextto, solo, none
 					navigationInGrid:"off",					// on/off
 
 					hideThumbsOnMobile:"off",

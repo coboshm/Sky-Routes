@@ -13,6 +13,7 @@
     <script type="text/javascript" src="/assets/js/jquery.noconflict.js"></script>
     <script type="text/javascript" src="/assets/js/jquery-ui.1.10.4.min.js"></script>
 
+
     <!-- load revolution slider scripts -->
     <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script>
     <script type="text/javascript" src="/assets/components/revolution_slider/js/jquery.themepunch.revolution.js"></script>
@@ -28,6 +29,27 @@
                         gridwidth:1230,
                         gridheight:720
                     });
+        });
+    </script>
+
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+    <script type="text/javascript">
+        $(function() {
+
+            function cb(start, end) {
+                $("#return").val(end.format('YYYY-MM-DD'));
+                $("#departure").val(start.format('YYYY-MM-DD'));
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+
+            $('#reportrange').daterangepicker({}, cb);
+
         });
     </script>
 
@@ -85,24 +107,22 @@
 
     {% include 'google-analytics.html' only %}
 </head>
-<body ng-app="myApp" ng-controller="generalCtrl">
-
+<body ng-app="myApp" ng-controller="generalCtrl" ng-init="initLang('{{ 'country'|trans  }}', '{{ 'localeAngular'|trans  }}', '{{ 'currency'|trans  }}')">
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
                 <div class="container">
                     <ul class="quick-menu pull-left">
                         <li class="ribbon">
-                            <a href="#">([[country.name]])</a>
-                            <ul class="menu mini">
-                                <li ng-repeat="mayCountry in countries"><a ng-click="changeCountry(mayCountry)">[[mayCountry.name]]</a></li>
+                            <a style="height:100%; width: 100%;" href="#">{{ 'locale'|trans }}</a>
+                            <ul class="ribbon menu mini">
+                                <li><a href="/en">En</a></li>
+                                <li><a href="/es">Es</a></li>
+                                <li><a href="/fr">Fr</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="quick-menu pull-right">
-                        <li class="currency">
-                            <a href="#" title="">Currency ([[country.currency]])</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -110,13 +130,13 @@
             <div class="main-header">
 
                 <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">
-                    Mobile Menu Toggle
+
                 </a>
 
                 <div class="container">
                     <h1 class="logo navbar-brand">
-                        <a href="index.html" title="Travelo - home">
-                            <img src="images/logo.png" alt="Travelo HTML5 Template" />
+                        <a href="/" title="Travelo - home">
+                            <img src="/assets/images/logo.png" height="80px" alt="WeekEm" />
                         </a>
                     </h1>
                 </div>
@@ -124,7 +144,18 @@
         </header>
     </div>
     {% block content %}{% endblock %}
-    <footer>
+    <footer class="mobile" id="footer" style="background-color: #ffffff;  width:100%; padding:20px 0 0 0; border-top: 1px solid #ececec; z-index:100;">
+        <div class="container">
+            <div class="logo pull-left" style="padding-left: 10px;">
+                <a href="http://Skyscanner.net" title="Skyscanner">
+                    Powered by:&nbsp;&nbsp;&nbsp; <img src="/assets/images/skyscanner.png" width="100px;" alt="SkyScanner">
+                </a>
+            </div>
+            <div class="copyright pull-right" style="padding-right: 10px;">
+                <p>© WeekEm</p>
+            </div>
+        </div>
+        </div>
     </footer>
 </body>
 </html>

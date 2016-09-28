@@ -4,6 +4,7 @@ namespace SkyRoutes\Resources;
 
 use SkyRoutes\Application\SearchFlies;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Translation\Translator;
 
 class SearchFliesController
 {
@@ -16,8 +17,9 @@ class SearchFliesController
      *
      * @param \Twig_Environment $twig
      * @param SearchFlies $searchFlies
+     * @param Translator $translator
      */
-    public function __construct(\Twig_Environment $twig, SearchFlies $searchFlies)
+    public function __construct(\Twig_Environment $twig, SearchFlies $searchFlies, Translator $translator)
     {
         $this->twig = $twig;
         $this->searchFlies = $searchFlies;

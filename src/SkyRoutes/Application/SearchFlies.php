@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SearchFlies
 {
-    const maxFlightsToShow = 20;
+    const maxFlightsToShow = 30;
 
     /**
      * @var $apiRepository
@@ -60,6 +60,86 @@ class SearchFlies
         $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
 
         $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'GE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'PT');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'LU');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'IE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'BE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'DE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'HR');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'MA');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'TN');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'PL');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'AT');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'CZ');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'HU');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'NO');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'SE');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'RU');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'GR');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'NL');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'FI');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'LT');
+        $jsonResults = json_decode($jsonResults, true);
+        $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
+
+        $jsonResults = $this->apiRepository->searchFlies($searchFliesEntity, 'RO');
         $jsonResults = json_decode($jsonResults, true);
         $routeQuoteCollection->addRoutes($jsonResults['Quotes'], $jsonResults['Places']);
 

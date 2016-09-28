@@ -7,16 +7,15 @@ use SkyRoutes\Resources\SearchTicketsController;
 
 // Home
 $app['controller.home'] = $app->factory(function ($app) {
-    return new HomeController($app['twig']);
+    return new HomeController($app['twig'], $app['translator']);
 });
-
 
 $app['controller.api.searchCountry'] = $app->factory(function ($app) {
     return new SearchCountryController($app['application.SearchCountry']);
 });
 
 $app['controller.api.searchFlies'] = $app->factory(function ($app) {
-    return new SearchFliesController($app['twig'], $app['application.SearchFlies']);
+    return new SearchFliesController($app['twig'], $app['application.SearchFlies'], $app['translator']);
 });
 
 $app['controller.api.searchTickets'] = $app->factory(function ($app) {

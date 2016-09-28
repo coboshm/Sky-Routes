@@ -1,6 +1,8 @@
 home:
-  path: /
-  defaults: { _controller: 'controller.home:indexAction' }
+  path: /{_locale}
+  defaults:  { _controller: 'controller.home:indexAction', _locale: en }
+  requirements:
+      _locale:  en|fr|es
 
 searchCountry:
   path: /searchCountry
@@ -8,8 +10,10 @@ searchCountry:
   methods: POST
 
 searchFlies:
-  path: /searchFlies
-  defaults: { _controller: 'controller.api.searchFlies:indexAction' }
+  path: /{_locale}/searchFlies
+  defaults: { _controller: 'controller.api.searchFlies:indexAction', _locale: en }
+  requirements:
+      _locale:  en|fr|es
   methods: POST
 
 searchTickets:

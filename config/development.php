@@ -5,4 +5,4 @@ use Silex\Application;
 require __DIR__ . '/production.php';
 
 $app['debug'] = true;
-$app['googleAnalytics'] = 'UA-XXXXXXXX-X';
+$app['googleAnalytics'] = 'XXXX';

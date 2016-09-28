@@ -20,8 +20,8 @@ class Flight {
     private $departureAirline;
     /** @var  string $departureAirlineImg */
     private $departureAirlineImg;
-    /** @var  string $returnTimeData */
-    private $returnTimeData;
+    /** @var  string $returnTimeDate */
+    private $returnTimeDate;
     /** @var  string $returnFromCity */
     private $returnFromCity;
     /** @var  string $returnToCity */
@@ -48,7 +48,7 @@ class Flight {
         $this->departureToCity      = $flightData['departureToCity'];
         $this->departureAirline     = $flightData['departureAirline'];
         $this->departureAirlineImg  = $flightData['departureAirlineImg'];
-        $this->returnTimeData       = $flightData['returnTimeData'];
+        $this->returnTimeDate       = $flightData['returnTimeDate'];
         $this->returnFromCity       = $flightData['returnFromCity'];
         $this->returnToCity         = $flightData['returnToCity'];
         $this->returnAriline        = $flightData['returnAriline'];
@@ -171,9 +171,9 @@ class Flight {
     /**
      * @return string
      */
-    public function getReturnTimeData()
+    public function getReturnTimeDate()
     {
-        return $this->returnTimeData;
+        return $this->returnTimeDate;
     }
 
     /**

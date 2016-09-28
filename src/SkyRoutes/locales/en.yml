@@ -1,0 +1,22 @@
+locale: EN
+currency: GBP
+country: UK
+localeAngular: en-GB
+where: Departure
+leavingfrom: Flying from
+cityairport: City or airport
+when: Date of travel
+departingon: Departing
+arrivingon: Returning
+searchnow: Search
+currency: Currency
+yoursearch: Your search
+searchagain: New Search
+flightime: Flight time
+departuretime: Departing
+returntime: Returning
+to: to
+priceperperson: From
+getitfor: Get it for
+seeflights: See flights
+loadingflights: Loading
